@@ -1,0 +1,21 @@
+{% extends 'accounts/base.html' %}
+
+{% block title %}Inicio{% endblock %}
+{% block header %}Lista de Posts{% endblock %}
+
+{% block content %}
+<form method="get" class="mb-3">
+    {{ form_buscar.termino }}
+    <button type="submit" class="btn btn-info">Buscar</button>
+</form>
+
+<ul class="list-group">
+    {% for post in posts %}
+        <li class="list-group-item">
+            <strong>{{ post.titulo }}</strong> - {{ post.autor.nombre }} ({{ post.categoria.nombre }})
+        </li>
+    {% empty %}
+        <li class="list-group-item">No hay posts disponibles.</li>
+    {% endfor %}
+</ul>
+{% endblock %}

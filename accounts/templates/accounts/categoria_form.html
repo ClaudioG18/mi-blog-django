@@ -1,0 +1,11 @@
+{% extends 'accounts/base.html' %}
+{% block title %}Nueva Categoría{% endblock %}
+{% block header %}Crear Categoría{% endblock %}
+
+{% block content %}
+<form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit" class="btn btn-primary">Guardar</button>
+</form>
+{% endblock %}
